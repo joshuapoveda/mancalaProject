@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(173, 219, 221);
+}
+.title{
+    border: solid 1px black;
+}
+article{
+    border: solid 1px black;
+    margin-bottom: 30px;
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+#board{
+    display: grid;
+    grid-template-columns: 200px 150px 150px 150px 150px 150px 150px 200px;
+    grid-template-areas: 
+        'p2-store p2-pit-a p2-pit-b p2-pit-c p2-pit-d p2-pit-e p2-pit-f p1-store'
+        'p2-store p1-pit-a p1-pit-b p1-pit-c p1-pit-d p1-pit-e p1-pit-f p1-store';
+    height: 300px;
+}
+#player-one{
+    background-color: crimson;
+    border: solid 1px black;
+}
+#player-two{
+    background-color: cornflowerblue;
+    border: solid 1px black;
+}
+#player-one-store{
+    grid-area: p1-store;
+    background-color: bisque;
+    border: solid black 1px;
+}
+#player-two-store{
+    grid-area: p2-store;
+    background-color: bisque;
+    border: solid black 1px;
+}
