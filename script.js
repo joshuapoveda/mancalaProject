@@ -19,17 +19,50 @@ class GameMechanics {
       }
     }
   }
-}
-const setNewGame = new GameMechanics();
-setNewGame.setBoard();
+  playerOneTurn(){
+    const boards = document.querySelector("#board");
 
-const currentCell = document.querySelector("#p1-cell-1");
-
-currentCell.addEventListener("click", function () {
-  let currentCellChild = currentCell.children;
+boards.addEventListener("click", function (event) {
+    let currentCellChild = event.target.children
+    if(event.target.classList == 'player-one'){
+        console.log('test')
+    } else{
+        return
+    }
   if (currentCellChild.length != 0) {
     for (let i = 2; i < 6; i++) {
       document.querySelector(`#p1-cell-${i}`).append(currentCellChild[0]);
     }
   }
 });
+  }
+  playerTwoTurn(){
+    const boards = document.querySelector("#board");
+
+boards.addEventListener("click", function (event) {
+    let currentCellChild = event.target.children
+    if(event.target.classList == 'player-two'){
+        console.log('test')
+    } else{
+        return
+    }
+  if (currentCellChild.length != 0) {
+    for (let i = 2; i < 6; i++) {
+      document.querySelector(`#p2-cell-${i}`).append(currentCellChild[0]);
+    }
+  }
+});
+  }
+}
+const NewGame = new GameMechanics();
+NewGame.setBoard();
+
+NewGame.playerOneTurn()
+NewGame.playerTwoTurn()
+
+
+
+
+// let playerOneCells = document.querySelectorAll('.player-one')
+
+//must have method for player one and two to set a skip-past-opp-store parameter per player

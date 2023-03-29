@@ -28,12 +28,12 @@ main{
     background-color: cornflowerblue;
     border: solid 1px black;
 }
-.p2-store{
+.p1-store{
     grid-area: p1-store;
     background-color: bisque;
     border: solid black 1px;
 }
-.p1-store{
+.p2-store{
     grid-area: p2-store;
     background-color: bisque;
     border: solid black 1px;
