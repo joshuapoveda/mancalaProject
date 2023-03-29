@@ -16,25 +16,29 @@ main{
     display: grid;
     grid-template-columns: 200px 150px 150px 150px 150px 150px 150px 200px;
     grid-template-areas: 
-        'p2-store p2-pit-a p2-pit-b p2-pit-c p2-pit-d p2-pit-e p2-pit-f p1-store'
-        'p2-store p1-pit-a p1-pit-b p1-pit-c p1-pit-d p1-pit-e p1-pit-f p1-store';
+        'p2-store p2-cell-a p2-cell-b p2-cell-c p2-cell-d p2-cell-e p2-cell-f p1-store'
+        'p2-store p1-cell-a p1-cell-b p1-cell-c p1-cell-d p1-cell-e p1-cell-f p1-store';
     height: 300px;
 }
-#player-one{
+.player-one{
     background-color: crimson;
     border: solid 1px black;
 }
-#player-two{
+.player-two{
     background-color: cornflowerblue;
     border: solid 1px black;
 }
-#player-one-store{
+.p2-store{
     grid-area: p1-store;
     background-color: bisque;
     border: solid black 1px;
 }
-#player-two-store{
+.p1-store{
     grid-area: p2-store;
     background-color: bisque;
     border: solid black 1px;
+}
+#p2-cell-a{
+    grid-area: p2-cell-a;
+    background-color: yellow !important
 }
