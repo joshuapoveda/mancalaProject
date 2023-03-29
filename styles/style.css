@@ -16,8 +16,8 @@ main{
     display: grid;
     grid-template-columns: 200px 150px 150px 150px 150px 150px 150px 200px;
     grid-template-areas: 
-        'p2-store p2-cell-a p2-cell-b p2-cell-c p2-cell-d p2-cell-e p2-cell-f p1-store'
-        'p2-store p1-cell-a p1-cell-b p1-cell-c p1-cell-d p1-cell-e p1-cell-f p1-store';
+        'p2-store p2-cell-6 p2-cell-5 p2-cell-4 p2-cell-3 p2-cell-2 p2-cell-1 p1-store'
+        'p2-store p1-cell-1 p1-cell-2 p1-cell-3 p1-cell-4 p1-cell-5 p1-cell-6 p1-store';
     height: 300px;
 }
 .player-one{
@@ -37,8 +37,4 @@ main{
     grid-area: p2-store;
     background-color: bisque;
     border: solid black 1px;
-}
-#p2-cell-a{
-    grid-area: p2-cell-a;
-    background-color: yellow !important
 }
