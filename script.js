@@ -2,7 +2,7 @@ class GameMechanics {
   setBoard() {
     let boardCellsPlayerOne = document.querySelectorAll(".player-one");
     for (let elem of boardCellsPlayerOne) {
-      for (let i = 0; i < 2; i++) {
+      for (let i = 0; i < 4; i++) {
         let nucleusOne = document.createElement("div");
         nucleusOne.textContent = "P1-nucleus" + (i + 1);
         nucleusOne.classList.add("playerOneNucleus");
@@ -21,30 +21,17 @@ class GameMechanics {
   }
 
   playerOneTurn() {
-    const boards = document.querySelector("#board");
-    //TODO: limit each side of board to player
-    //NOTE: player 1 loop must begin at position 7 of cell array (bottom half of board)
-    boards.addEventListener("click", function (event) {
-
+    const board = document.querySelector("#board");
+  
+    board.addEventListener("click", function(event) {
       let currentCell = event.target;
-      let currentCellChild = currentCell.children;
       let currentCellId = +currentCell.getAttribute("id");
-
-      let neighbors = document.querySelector("#board").children;
-
-      let cnt = 0;
-
-      for (let i = 0; i <= currentCellChild.length; i++) {
-        console.log(neighbors[currentCellId + i]);
-        cnt++;
-        if(currentCellId === 13){
-            for(let j = 0; j < currentCellChild.length; j++){
-                console.log(neighbors[7 - i]);
-            }
-        }
-
-       
-        console.log(cnt);
+      let cells = board.children;
+      
+      for (let i = 0; i <= cells.length; i++) {
+        let nextCell = cells[(currentCellId + i) % 14];
+        console.log(nextCell);
+        // perform actions on the next cell
       }
     });
   }
