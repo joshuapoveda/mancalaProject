@@ -2,7 +2,7 @@ class GameMechanics {
   setBoard() {
     let boardCellsPlayerOne = document.querySelectorAll(".player-one");
     for (let elem of boardCellsPlayerOne) {
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 3; i++) {
         let nucleusOne = document.createElement("div");
         nucleusOne.textContent = "P1-nucleus" + (i + 1);
         nucleusOne.classList.add("playerOneNucleus");
@@ -19,40 +19,42 @@ class GameMechanics {
       }
     }
   }
+
   playerOneTurn() {
     const boards = document.querySelector("#board");
-//TODO: limit each side of board to player
-//NOTE: player 1 loop must begin at position 7 of cell array (bottom half of board)
+    //TODO: limit each side of board to player
+    //NOTE: player 1 loop must begin at position 7 of cell array (bottom half of board)
     boards.addEventListener("click", function (event) {
       //position by tag
-      let currentCell = event.target  
+      let currentCell = event.target;
+      //console.log(currentCell)
       //number of pieces in cell
       let currentCellChild = currentCell.children;
+      //console.log(currentCellChild)
       //position by ID
-      let currentCellId = currentCell.getAttribute('id')
+      let currentCellId = +currentCell.getAttribute("id");
+      //console.log(+currentCellId)
+      //console.log(typeof +currentCellId)
       //array of all cells
-      let neighbors = document.querySelector('#board').children
-     
-      //TEST
-    //   function stringify(string,num){
-    //     let newArray = string.split('')
-    //     newArray.pop()
-    //     newArray.push(num)
-    //     return newArray.join('')
-    //   }
+      let neighbors = document.querySelector("#board").children;
+      //console.log(neighbors)
+      let cnt = 0;
 
-    //gets number of current ID
-      function getNum(id){
-        let newArray = id.split('')
-        return parseInt(newArray.pop())
+      for (let i = 0; i <= currentCellChild.length; i++) {
+        console.log(neighbors[currentCellId + i]);
+        cnt++;
+        if(currentCellId + cnt > 13){
+            for(let j = 7; j > 3; j--){
+                console.log(neighbors[j]);
+            }
+        }
+
+       
+        console.log(cnt);
       }
-      
-for(let i = 1; i < 5;i++){
-    console.log(neighbors[getNum(currentCellId) + i + 7])
-}
-
     });
   }
+
   playerTwoTurn() {
     const boards = document.querySelector("#board");
 
@@ -71,17 +73,12 @@ for(let i = 1; i < 5;i++){
     });
   }
 }
+
 const NewGame = new GameMechanics();
 NewGame.setBoard();
 
 NewGame.playerOneTurn();
 //NewGame.playerTwoTurn();
-
-const boards = document.querySelector("#board");
-let boardsArray = boards.children;
-for (elem of boardsArray) {
-  console.log(elem);
-}
 
 // let playerOneCells = document.querySelectorAll('.player-one')
 
