@@ -11,6 +11,7 @@ article{
 main{
     display: flex;
     justify-content: center;
+    border: solid 2px black;
 }
 #board{
     display: grid;
