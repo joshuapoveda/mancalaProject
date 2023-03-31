@@ -22,16 +22,26 @@ class GameMechanics {
 
   playerOneTurn() {
     const board = document.querySelector("#board");
-  
-    board.addEventListener("click", function(event) {
+
+    board.addEventListener("click", function (event) {
       let currentCell = event.target;
+      console.log(currentCell);
       let currentCellId = +currentCell.getAttribute("id");
+      console.log(currentCellId);
       let cells = board.children;
-      
-      for (let i = 0; i <= cells.length; i++) {
-        let nextCell = cells[(currentCellId + i) % 14];
-        console.log(nextCell);
-        // perform actions on the next cell
+      console.log(cells);
+      let nuclei = currentCell.children.length;
+      console.log(nuclei);
+
+      for (let i = 0; i < nuclei; i++) {
+        if ((currentCellId + nuclei) % 14 > 10) {
+          cells[currentCellId + i].append("TEST");
+        } else {
+          let remainder = nuclei - i;
+          for (let i = 0; i < remainder; i++) {
+            cells[8].append('*')
+          }
+        }
       }
     });
   }
