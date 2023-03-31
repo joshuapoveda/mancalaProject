@@ -28,10 +28,16 @@ class GameMechanics {
       console.log(currentCell);
       let currentCellId = +currentCell.getAttribute("id");
       console.log(currentCellId);
-      let cells = board.children;
+      let cells = Array.from(board.children)
       console.log(cells);
       let nuclei = currentCell.children.length;
       console.log(nuclei);
+
+      cells.sort(function(a,b){
+        return a.id - b.id
+      })
+
+    
 
       for (let i = 0; i < nuclei; i++) {
         if ((currentCellId + nuclei) % 14 > 10) {
@@ -39,7 +45,7 @@ class GameMechanics {
         } else {
           let remainder = nuclei - i;
           for (let i = 0; i < remainder; i++) {
-            cells[8].append('*')
+            cells[6].append('*')
           }
         }
       }
