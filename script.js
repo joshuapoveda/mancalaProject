@@ -28,10 +28,6 @@ class GameMechanics {
     const board = document.querySelector("#board");
 
     board.addEventListener("click", function (event) {
-      // let img = document.createElement("img");
-      // img.src = 'styles/imgs/images.png'
-      // img.style.height = '50px'
-      // img.style.width = '50px'
       let currentCell = event.target;
       let currentCellId = +currentCell.getAttribute("id");
       let cells = Array.from(board.children);
