@@ -100,4 +100,3 @@ NewGame.setBoard();
 NewGame.playerOneTurn();
 //NewGame.playerTwoTurn();
 
-//must have method for player one and two to set a skip-past-opp-store parameter per player
