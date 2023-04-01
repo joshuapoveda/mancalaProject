@@ -4,7 +4,7 @@ class GameMechanics {
     for (let elem of boardCellsPlayerOne) {
       for (let i = 0; i < 4; i++) {
         let nucleusOne = document.createElement("div");
-        nucleusOne.textContent = `*`;
+        nucleusOne.textContent = `*${i + 1}`;
         nucleusOne.classList.add("playerOneNucleus");
         elem.append(nucleusOne);
       }
@@ -13,7 +13,7 @@ class GameMechanics {
     for (let elem of boardCellsPlayerTwo) {
       for (let i = 0; i < 4; i++) {
         let nucleusTwo = document.createElement("div");
-        nucleusTwo.textContent = `*`;
+        nucleusTwo.textContent = `*${i + 1}`;
         nucleusTwo.classList.add("playerTwoNucleus");
         elem.append(nucleusTwo);
       }
@@ -35,7 +35,7 @@ class GameMechanics {
       let currentCell = event.target;
       let currentCellId = +currentCell.getAttribute("id");
       let cells = Array.from(board.children);
-      //let nuclei = currentCell.children
+      let nuclei = currentCell.children
       let numOfnuclei = currentCell.children.length;
       if (currentCell.classList.contains("player-two")) {
         return;
@@ -45,20 +45,24 @@ class GameMechanics {
       });
       let cnt = 0;
       for (let i = 0; i < numOfnuclei; i++) {
-        currentCell.innerHTML = ''
         cnt++;
         if (currentCellId + i < 14) {
-          cells[currentCellId + i].append('*');
+          cells[currentCellId + i].append(`${i}`);
         } else {
           let remainder = numOfnuclei - cnt;
           for (let i = 0; i <= remainder; i++) {
             cells[i].append('*');
           }
         }
+
       }
     });
   }
 
+
+
+
+  
   playerTwoTurn() {
     const board = document.querySelector("#board");
 
