@@ -54,15 +54,10 @@ class GameMechanics {
             cells[i].append('*');
           }
         }
-
       }
     });
   }
 
-
-
-
-  
   playerTwoTurn() {
     const board = document.querySelector("#board");
 
@@ -104,7 +99,5 @@ NewGame.setBoard();
 
 NewGame.playerOneTurn();
 //NewGame.playerTwoTurn();
-
-// let playerOneCells = document.querySelectorAll('.player-one')
 
 //must have method for player one and two to set a skip-past-opp-store parameter per player
