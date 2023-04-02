@@ -29,6 +29,7 @@ main{
 .player-two{
     background-color: cornflowerblue;
     border: solid 1px black;
+    padding: 20px;
 }
 .p1-store{
     grid-area: p1-cell-14;
