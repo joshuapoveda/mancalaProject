@@ -24,6 +24,7 @@ main{
 .player-one{
     background-color: crimson;
     border: solid 1px black;
+    padding: 20px;
 }
 .player-two{
     background-color: cornflowerblue;
