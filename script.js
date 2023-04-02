@@ -1,11 +1,11 @@
-class GameMechanics {
+//class GameMechanics {
   // createNucleus(){
   // let nucleus = document.createElement("div");
   // nucleus.textContent = 'X';
   // nucleus.classList.add("nucleus");
   // return nucleus
   // }
-  setBoard() {
+  function setBoard() {
     let boardCellsPlayerOne = document.querySelectorAll(".player-one");
     for (let elem of boardCellsPlayerOne) {
       for (let i = 0; i < 4; i++) {
@@ -26,11 +26,11 @@ class GameMechanics {
     }
   }
 
-  resetBoard() {
+  function resetBoard() {
     location.reload();
   }
 
-  playerOneTurn() {
+  function playerOneTurn() {
     const board = document.querySelector("#board");
 
     board.addEventListener("mousedown", function (event) {
@@ -90,7 +90,7 @@ class GameMechanics {
         });
     });
   }
-  playerTwoTurn() {
+  function playerTwoTurn() {
     board.addEventListener("mousedown", function (event) {
       let currentCell = event.target;
       if (currentCell.classList.contains("player-one")) {
@@ -142,19 +142,18 @@ class GameMechanics {
       }
     });
   }
-}
+//}
 
 const resetBtn = document.querySelector(".reset-btn");
 resetBtn.addEventListener("click", function (event) {
-  NewGame.resetBoard();
+  resetBoard();
 });
 
-const NewGame = new GameMechanics();
+//const NewGame = new GameMechanics();
 
-NewGame.setBoard();
-
-NewGame.playerOneTurn()
-NewGame.playerTwoTurn()
+setBoard();
+playerOneTurn()
+playerTwoTurn()
 
 // switch(x) {
 //   case 1:
