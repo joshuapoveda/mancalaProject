@@ -51,7 +51,7 @@ class GameMechanics {
       }
       if (numOfnuclei > 0) {
         if (numOfnuclei + currentCellId >= 12) {
-          let diff = numOfnuclei - currentCellId;
+          let diff = numOfnuclei - currentCellId + 1;
           for (let i = 1; i <= diff; i++) {
             let nucleus = document.createElement("div");
             nucleus.textContent = 0;
@@ -59,7 +59,7 @@ class GameMechanics {
             playerOneBoard[currentCellId + i].append(nucleus);
           }
 
-          let remainder = 13 - diff - 1;
+          let remainder = 12 - diff - 1;
           for (let j = 0; j < remainder; j++) {
             let nucleus = document.createElement("div");
             nucleus.textContent = 0;
@@ -68,6 +68,7 @@ class GameMechanics {
             //Below is the case for player to go again
             //console.log(playerOneBoard[remainder - 1]);
           }
+          
         } else {
           for (let i = 1; i <= numOfnuclei; i++) {
             let nucleus = document.createElement("div");
@@ -78,14 +79,15 @@ class GameMechanics {
             //console.log(playerOneBoard[currentCellId + numOfnuclei]);
           }
         }
-        board.addEventListener("mouseup", function () {
-          for (let i = 0; i < numOfnuclei; i++) nuclei[i].remove();
-          return 2
-        });
         // if (currentCellId + numOfnuclei === 6) {
-        //   console.log(`last piece in `);
-        // }
-      }
+          //   console.log(`last piece in `);
+          // }
+        }
+        board.addEventListener("mouseup", function () {
+          for (let i = 0; i <= numOfnuclei - 1; i++){
+            nuclei[i].remove();
+          }
+        });
     });
   }
   playerTwoTurn() {
@@ -152,7 +154,7 @@ const NewGame = new GameMechanics();
 NewGame.setBoard();
 
 NewGame.playerOneTurn()
-//NewGame.playerTwoTurn()
+NewGame.playerTwoTurn()
 
 // switch(x) {
 //   case 1:
