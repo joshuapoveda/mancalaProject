@@ -80,7 +80,11 @@ class GameMechanics {
         }
         board.addEventListener("mouseup", function () {
           for (let i = 0; i < numOfnuclei; i++) nuclei[i].remove();
+          return 2
         });
+        // if (currentCellId + numOfnuclei === 6) {
+        //   console.log(`last piece in `);
+        // }
       }
     });
   }
@@ -144,7 +148,21 @@ resetBtn.addEventListener("click", function (event) {
 });
 
 const NewGame = new GameMechanics();
+
 NewGame.setBoard();
 
-NewGame.playerOneTurn();
-NewGame.playerTwoTurn();
+NewGame.playerOneTurn()
+//NewGame.playerTwoTurn()
+
+// switch(x) {
+//   case 1:
+//     NewGame.playerOneTurn();
+//     break;
+//   case 2:
+//     NewGame.playerTwoTurn();
+//     break;
+//   default:
+//     console.log('TEST')
+// }
+
+
