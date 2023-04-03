@@ -8,7 +8,7 @@
 function setBoard() {
   let boardCellsPlayerOne = document.querySelectorAll(".player-one");
   for (let elem of boardCellsPlayerOne) {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 4; i++) {
       let nucleusOne = document.createElement("div");
       nucleusOne.textContent = 0;
       nucleusOne.classList.add("nucleus");
@@ -17,7 +17,7 @@ function setBoard() {
   }
   let boardCellsPlayerTwo = document.querySelectorAll(".player-two");
   for (let elem of boardCellsPlayerTwo) {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 4; i++) {
       let nucleusTwo = document.createElement("div");
       nucleusTwo.textContent = 0;
       nucleusTwo.classList.add("nucleus");
@@ -30,10 +30,16 @@ function resetBoard() {
   location.reload();
 }
 
-function playerOneTurn() {
-  const board = document.querySelector("#board");
+const board = document.querySelector("#board");
+let textDisplay = document.querySelector("#player-one-prompt");
+let textDisplay2 = document.querySelector("#player-two-prompt");
 
+
+
+function playerOneTurn() {
+  textDisplay.style.opacity = "1";
   board.addEventListener("mousedown", function (event) {
+    textDisplay.style.opacity = "0";
     let currentCell = event.target;
     if (currentCell.classList.contains("player-two")) {
       return;
@@ -77,9 +83,12 @@ function playerOneTurn() {
           //Below is the case for player to go again
           //console.log(playerOneBoard[currentCellId + numOfnuclei]);
         }
-      }
-      if (currentCellId + numOfnuclei === 6) {
-        console.log(`last piece in`);
+        if (currentCellId + numOfnuclei === 6) {
+          textDisplay.style.opacity = "1";
+        } else{
+          textDisplay2.style.opacity = "1";
+          
+        }
       }
     }
     board.addEventListener("mouseup", function () {
@@ -110,15 +119,17 @@ function playerOneTurn() {
           nucleus.classList.add("nucleus");
           finalGrab.append(nucleus);
         }
-        for(let i = 7; i <= 12; i++){
-          playerOneBoard[i].innerHTML = ''
+        for (let i = 7; i <= 12; i++) {
+          playerOneBoard[i].innerHTML = "";
         }
       }
     });
   });
 }
 function playerTwoTurn() {
+  textDisplay2.style.opacity = "0";
   board.addEventListener("mousedown", function (event) {
+    //textDisplay2.style.opacity = "1";
     let currentCell = event.target;
     if (currentCell.classList.contains("player-one")) {
       return;
@@ -137,6 +148,10 @@ function playerTwoTurn() {
 
     if (numOfnuclei > 0) {
       if (numOfnuclei + currentCellId > 12) {
+        if (currentCellId + numOfnuclei > 13) {
+          textDisplay2.style.opacity = "0";
+          textDisplay.style.opacity = "1";
+        } 
         let diff = 13 - currentCellId;
         for (let i = 0; i < diff; i++) {
           let nucleus = document.createElement("div");
@@ -163,6 +178,9 @@ function playerTwoTurn() {
           //Below is the case for player to go again
           //console.log(playerTwoBoard[currentCellId + numOfnuclei]);
         }
+        if (currentCellId + numOfnuclei === 13) {
+          textDisplay2.style.opacity = "1";
+        } 
       }
       board.addEventListener("mouseup", function () {
         for (let i = 0; i < numOfnuclei; i++) nuclei[i].remove();
@@ -189,8 +207,7 @@ function playerTwoTurn() {
             nucleus.classList.add("nucleus");
             finalGrab.append(nucleus);
           }
-          for(let i = 0; i < 6; i++)
-          playerTwoBoard[i].innerHTML = ''
+          for (let i = 0; i < 6; i++) playerTwoBoard[i].innerHTML = "";
         }
       });
     }

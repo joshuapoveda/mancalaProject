@@ -11,6 +11,12 @@ article{
 #text-box{
     border: solid 2px red;
 }
+#player-one-prompt{
+    opacity: 0;
+}
+#player-two-prompt{
+    opacity: 0;
+}
 main{
     display: flex;
     justify-content: center;
