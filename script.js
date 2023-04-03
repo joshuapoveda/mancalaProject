@@ -32,7 +32,7 @@
 
   function playerOneTurn() {
     const board = document.querySelector("#board");
-
+    
     board.addEventListener("mousedown", function (event) {
       let currentCell = event.target;
       if (currentCell.classList.contains("player-two")) {
@@ -80,17 +80,23 @@
           }
         }
         if (currentCellId + numOfnuclei === 6) {
-            console.log(`last piece in `);
+            console.log(`last piece in`);
           }
         }
         board.addEventListener("mouseup", function () {
           for (let i = 0; i <= numOfnuclei - 1; i++){
             nuclei[i].remove();
           }
+          let playerOneCells = document.getElementsByClassName('player-one')
+          let cnt = 0
+          for(let i = 0 ; i < playerOneCells.length;i++){
+            cnt += playerOneCells[i].childElementCount 
+          }
+          if(cnt === 0){
+            console.log('end game')
+          }
         });
     });
-    // let playerOneVariable = 1
-    // return playerOneVariable
   }
   function playerTwoTurn() {
     board.addEventListener("mousedown", function (event) {
@@ -109,7 +115,6 @@
       function removeP1Store(cell) {
         return cell.getAttribute("id") != 6;
       }
-      console.log(playerTwoBoard)
       if (numOfnuclei > 0) {
         if (numOfnuclei + currentCellId > 12) {
           let diff = 13 - currentCellId;
@@ -141,6 +146,14 @@
         }
         board.addEventListener("mouseup", function () {
           for (let i = 0; i < numOfnuclei; i++) nuclei[i].remove();
+          let playerOneCells = document.getElementsByClassName('player-two')
+          let cnt = 0
+          for(let i = 0 ; i < playerOneCells.length;i++){
+            cnt += playerOneCells[i].childElementCount 
+          }
+          if(cnt === 0){
+            console.log('end game')
+          }
         });
       }
     });
@@ -157,20 +170,7 @@ resetBtn.addEventListener("click", function (event) {
 //const NewGame = new GameMechanics();
 
 setBoard();
+
 playerOneTurn()
 playerTwoTurn()
-
-
-//playerOneTurn()
-//playerTwoTurn()
-
-// switch(funcReturnOne + funcReturnTwo) {
-//   case 1:
-//     playerOneTurn();
-//     break;
-//   case 2:
-//     console.log('TEST2')
-//     break;
-// }
-
 
