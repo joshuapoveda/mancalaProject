@@ -110,6 +110,9 @@ function playerOneTurn() {
           nucleus.classList.add("nucleus");
           finalGrab.append(nucleus);
         }
+        for(let i = 7; i <= 12; i++){
+          playerOneBoard[i].innerHTML = ''
+        }
       }
     });
   });
@@ -131,6 +134,7 @@ function playerTwoTurn() {
     function removeP1Store(cell) {
       return cell.getAttribute("id") != 6;
     }
+
     if (numOfnuclei > 0) {
       if (numOfnuclei + currentCellId > 12) {
         let diff = 13 - currentCellId;
@@ -179,13 +183,14 @@ function playerTwoTurn() {
             cnt2 += playerOneCells[i].childElementCount;
           }
           let finalGrab = document.querySelector(".p1-store");
-          console.log(cnt2);
           for (let i = 0; i < cnt2; i++) {
             let nucleus = document.createElement("div");
             nucleus.textContent = 0;
             nucleus.classList.add("nucleus");
             finalGrab.append(nucleus);
           }
+          for(let i = 0; i < 6; i++)
+          playerTwoBoard[i].innerHTML = ''
         }
       });
     }
