@@ -79,9 +79,9 @@
             //console.log(playerOneBoard[currentCellId + numOfnuclei]);
           }
         }
-        // if (currentCellId + numOfnuclei === 6) {
-          //   console.log(`last piece in `);
-          // }
+        if (currentCellId + numOfnuclei === 6) {
+            console.log(`last piece in `);
+          }
         }
         board.addEventListener("mouseup", function () {
           for (let i = 0; i <= numOfnuclei - 1; i++){
@@ -89,6 +89,8 @@
           }
         });
     });
+    // let playerOneVariable = 1
+    // return playerOneVariable
   }
   function playerTwoTurn() {
     board.addEventListener("mousedown", function (event) {
@@ -107,8 +109,9 @@
       function removeP1Store(cell) {
         return cell.getAttribute("id") != 6;
       }
+      console.log(playerTwoBoard)
       if (numOfnuclei > 0) {
-        if (numOfnuclei + currentCellId > 13) {
+        if (numOfnuclei + currentCellId > 12) {
           let diff = 13 - currentCellId;
           for (let i = 0; i < diff; i++) {
             let nucleus = document.createElement("div");
@@ -131,7 +134,7 @@
             let nucleus = document.createElement("div");
             nucleus.textContent = 0;
             nucleus.classList.add("nucleus");
-            playerTwoBoard[i + currentCellId - 1].append(nucleus);
+            playerTwoBoard[currentCellId + i - 1].append(nucleus);
             //Below is the case for player to go again
             //console.log(playerTwoBoard[currentCellId + numOfnuclei]);
           }
@@ -141,6 +144,8 @@
         });
       }
     });
+    // let playerTwoVariable = 0
+    // return playerTwoVariable
   }
 //}
 
@@ -155,15 +160,17 @@ setBoard();
 playerOneTurn()
 playerTwoTurn()
 
-// switch(x) {
+
+//playerOneTurn()
+//playerTwoTurn()
+
+// switch(funcReturnOne + funcReturnTwo) {
 //   case 1:
-//     NewGame.playerOneTurn();
+//     playerOneTurn();
 //     break;
 //   case 2:
-//     NewGame.playerTwoTurn();
+//     console.log('TEST2')
 //     break;
-//   default:
-//     console.log('TEST')
 // }
 
 

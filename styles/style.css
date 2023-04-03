@@ -8,6 +8,9 @@ article{
     border: solid 1px black;
     margin-bottom: 30px;
 }
+#text-box{
+    border: solid 2px red;
+}
 main{
     display: flex;
     justify-content: center;
@@ -41,5 +44,6 @@ main{
     background-color: bisque;
     border: solid black 1px;
 }
+
 
 
