@@ -102,11 +102,13 @@ function playerOneTurn() {
         for (let i = 0; i < playerTwoCells.length; i++) {
           cnt1 += playerTwoCells[i].childElementCount;
         }
-        let finalGrab = document.querySelector(".p1-store");
+        let finalGrab = document.querySelector(".p2-store");
         console.log(cnt1);
-        for (let i = 0; i <= cnt1; i++) {
+        for (let i = 0; i < cnt1; i++) {
+          let nucleus = document.createElement("div");
+          nucleus.textContent = 0;
+          nucleus.classList.add("nucleus");
           finalGrab.append(nucleus);
-          console.log(i)
         }
       }
     });
@@ -178,7 +180,10 @@ function playerTwoTurn() {
           }
           let finalGrab = document.querySelector(".p1-store");
           console.log(cnt2);
-          for (let i = 0; i <= cnt2; i++) {
+          for (let i = 0; i < cnt2; i++) {
+            let nucleus = document.createElement("div");
+            nucleus.textContent = 0;
+            nucleus.classList.add("nucleus");
             finalGrab.append(nucleus);
           }
         }
