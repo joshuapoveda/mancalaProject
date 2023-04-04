@@ -33,22 +33,38 @@ main{
 .player-one{
     background-color: crimson;
     border: solid 1px black;
-    padding-bottom: 40px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .player-two{
     background-color: cornflowerblue;
     border: solid 1px black;
-    padding: 20px;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .p1-store{
     grid-area: p1-cell-14;
     background-color: bisque;
     border: solid black 1px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .p2-store{
     grid-area: p2-cell-7;
     background-color: bisque;
     border: solid black 1px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.nucleus{
+    pointer-events: none;
 }
 
 

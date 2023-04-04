@@ -36,7 +36,7 @@ const board = document.querySelector("#board");
 let textDisplay = document.querySelector("#player-one-prompt");
 let textDisplay2 = document.querySelector("#player-two-prompt");
 
-
+let playerTurn = true
 
 function playerOneTurn() {
   textDisplay.style.opacity = "1";
@@ -58,7 +58,7 @@ function playerOneTurn() {
       return cell.getAttribute("id") != 13;
     }
     if (numOfnuclei > 0) {
-      if (numOfnuclei + currentCellId >= 12) {
+      if (numOfnuclei + currentCellId > 12) {
         textDisplay2.style.opacity = "1";
         let diff = numOfnuclei - currentCellId + 1;
         for (let i = 1; i <= diff; i++) {
@@ -69,7 +69,7 @@ function playerOneTurn() {
           playerOneBoard[currentCellId + i].append(nucleus);
         }
 
-        let remainder = 12 - diff - 1;
+        let remainder = 12 - diff - 2;
         for (let j = 0; j < remainder; j++) {
           let nucleus = document.createElement("div");
           nucleus.textContent = 0;
@@ -239,5 +239,11 @@ resetBtn.addEventListener("click", function (event) {
 
 setBoard();
 
-playerOneTurn();
-playerTwoTurn();
+// if(playerTurn === true){
+//   playerOneTurn();  
+// } else{
+//   playerTwoTurn();
+// }
+  playerTwoTurn();
+  playerOneTurn();  
+
