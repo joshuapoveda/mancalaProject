@@ -1,10 +1,3 @@
-//class GameMechanics {
-// createNucleus(){
-// let nucleus = document.createElement("div");
-// nucleus.textContent = 'X';
-// nucleus.classList.add("nucleus");
-// return nucleus
-// }
 function setBoard() {
   let boardCellsPlayerOne = document.querySelectorAll(".player-one");
   for (let elem of boardCellsPlayerOne) {
@@ -40,29 +33,29 @@ let textDisplay2 = document.querySelector("#player-two-prompt");
 let playerTurn = true;
 textDisplay.style.opacity = "1";
 
-function setPlayer(){
-if (playerTurn === true) {
-  for (let i = 1; i <= 6; i++) {
-    boardChildren[i].classList.remove("player-two-active")
-    boardChildren[i].classList.add("player-two-deactive");
+function setPlayer() {
+  if (playerTurn === true) {
+    for (let i = 1; i <= 6; i++) {
+      boardChildren[i].classList.remove("player-two-active");
+      boardChildren[i].classList.add("player-two-deactive");
+    }
+    for (let i = 7; i <= 12; i++) {
+      boardChildren[i].classList.remove("player-one-deactive");
+      boardChildren[i].classList.add("player-one-active");
+    }
+  } else if (playerTurn === false) {
+    for (let i = 7; i <= 12; i++) {
+      boardChildren[i].classList.remove("player-one-active");
+      boardChildren[i].classList.add("player-one-deactive");
+    }
+    for (let i = 1; i <= 6; i++) {
+      boardChildren[i].classList.remove("player-two-deactive");
+      boardChildren[i].classList.add("player-two-active");
+    }
   }
-  for (let i = 7; i <= 12; i++) {
-    boardChildren[i].classList.remove("player-one-deactive")
-    boardChildren[i].classList.add("player-one-active");
-  }
-} else if (playerTurn === false) {
-  for (let i = 7; i <= 12; i++) {
-    boardChildren[i].classList.remove("player-one-active")
-    boardChildren[i].classList.add("player-one-deactive");
-  }
-  for (let i = 1; i <= 6; i++) {
-    boardChildren[i].classList.remove("player-two-deactive")
-    boardChildren[i].classList.add("player-two-active");
-  }
-}
 }
 
-setPlayer()
+setPlayer();
 
 function playerOneTurn() {
   board.addEventListener("mousedown", function (event) {
@@ -84,9 +77,6 @@ function playerOneTurn() {
     }
     if (numOfnuclei > 0) {
       if (numOfnuclei + currentCellId > 12) {
-        //playerTurn = false;
-        //console.log(playerTurn)
-        // textDisplay2.style.opacity = "1";
         let diff = 12 - currentCellId;
         for (let i = 1; i <= diff; i++) {
           let nucleus = document.createElement("div");
@@ -103,20 +93,14 @@ function playerOneTurn() {
           nucleus.style.fontSize = "x-large";
           nucleus.classList.add("nucleus");
           playerOneBoard[j].append(nucleus);
-          //Below is the case for player to go again
-          //console.log(playerOneBoard[remainder - 1]);
         }
       } else {
-        //playerTurn = false;
-        //console.log(playerTurn)
         for (let i = 1; i <= numOfnuclei; i++) {
           let nucleus = document.createElement("div");
           nucleus.textContent = 0;
           nucleus.style.fontSize = "x-large";
           nucleus.classList.add("nucleus");
           playerOneBoard[currentCellId + i].append(nucleus);
-          //Below is the case for player to go again
-          //console.log(playerOneBoard[currentCellId + numOfnuclei]);
         }
       }
     }
@@ -127,7 +111,7 @@ function playerOneTurn() {
         textDisplay.style.opacity = "0";
         textDisplay2.style.opacity = "1";
         playerTurn = false;
-        setPlayer()
+        setPlayer();
       }
 
       for (let i = 0; i < numOfnuclei; i++) nuclei[i].remove();
@@ -185,7 +169,6 @@ function playerTwoTurn() {
 
     if (numOfnuclei > 0) {
       textDisplay2.style.opacity = "0";
-      textDisplay.style.opacity = "1";
       if (numOfnuclei + currentCellId > 12) {
         let diff = 13 - currentCellId;
         for (let i = 0; i < diff; i++) {
@@ -203,8 +186,6 @@ function playerTwoTurn() {
           nucleus.style.fontSize = "x-large";
           nucleus.classList.add("nucleus");
           playerTwoBoard[j].append(nucleus);
-          //Below is the case for player to go again
-          //console.log(playerTwoBoard[remainder - 1]);
         }
       } else {
         for (let i = 1; i <= numOfnuclei; i++) {
@@ -213,21 +194,17 @@ function playerTwoTurn() {
           nucleus.style.fontSize = "x-large";
           nucleus.classList.add("nucleus");
           playerTwoBoard[currentCellId + i - 1].append(nucleus);
-          //Below is the case for player to go again
-          //console.log(playerTwoBoard[currentCellId + numOfnuclei]);
-          //textDisplay2.style.opacity = "0";
-          // textDisplay.style.opacity = "1";
         }
       }
+      textDisplay.style.opacity = "0";
       board.addEventListener("mouseup", function () {
         if (currentCellId + numOfnuclei === 13) {
           textDisplay2.style.opacity = "1";
-          textDisplay.style.opacity = "0";
         } else {
           textDisplay2.style.opacity = "0";
           textDisplay.style.opacity = "1";
           playerTurn = true;
-          setPlayer()
+          setPlayer();
         }
 
         for (let i = 0; i < numOfnuclei; i++) nuclei[i].remove();
@@ -262,17 +239,12 @@ function playerTwoTurn() {
       });
     }
   });
-  // let playerTwoVariable = 0
-  // return playerTwoVariable
 }
-//}
 
 const resetBtn = document.querySelector(".reset-btn");
 resetBtn.addEventListener("click", function (event) {
   resetBoard();
 });
-
-//const NewGame = new GameMechanics();
 
 setBoard();
 
