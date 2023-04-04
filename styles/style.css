@@ -4,18 +4,25 @@ body {
 }
 .title {
   border: solid 1px black;
+  font-size: 60px;
 }
 article {
   border: solid 1px black;
   margin-bottom: 30px;
 }
+
+p{
+    font-size: x-large;
+    font-weight:normal
+}
+
 #text-box {
   border: solid 2px red;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  height: 160px;
+  height: 140px;
 }
 #player-one-prompt {
   opacity: 0;
@@ -75,13 +82,13 @@ main {
 }
 
 #player-one-prompt{
-    font-size: 40px;
+    font-size: 30px;
     color:blue;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
 #player-two-prompt{
-    font-size: 40px;
+    font-size: 30px;
     color:red;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
@@ -115,4 +122,10 @@ button {
   height: 100px;
   width: 100%;
   background-color: antiquewhite;
+  font-size:40px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.end-game{
+
 }
