@@ -1,91 +1,118 @@
-body{
-    background-color: rgb(173, 219, 221);
+body {
+  background-color: rgb(233, 233, 233);
+  font-family: 'Courier New', Courier, monospace;
 }
-.title{
-    border: solid 1px black;
+.title {
+  border: solid 1px black;
 }
-article{
-    border: solid 1px black;
-    margin-bottom: 30px;
+article {
+  border: solid 1px black;
+  margin-bottom: 30px;
 }
-#text-box{
-    border: solid 2px red;
+#text-box {
+  border: solid 2px red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 160px;
 }
+#player-one-prompt {
+  opacity: 0;
+}
+#player-two-prompt {
+  opacity: 0;
+}
+main {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#board {
+  display: grid;
+  grid-template-columns: 200px 150px 150px 150px 150px 150px 150px 200px;
+  grid-template-areas:
+    "p2-cell-7 p2-cell-6 p2-cell-5 p2-cell-4 p2-cell-3 p2-cell-2 p2-cell-1 p1-cell-14"
+    "p2-cell-7 p1-cell-8 p1-cell-9 p1-cell-10 p1-cell-11 p1-cell-12 p1-cell-13 p1-cell-14";
+  height: 300px;
+}
+.player-one {
+  border: solid 1px black;
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.player-two {
+  border: solid 1px black;
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.p1-store {
+  grid-area: p1-cell-14;
+  background-color: rgb(187, 161, 222);
+  border: solid blue 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  pointer-events: none;
+}
+.p2-store {
+  grid-area: p2-cell-7;
+  background-color: rgb(187, 161, 222);
+  border: solid red 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.nucleus {
+  pointer-events: none;
+}
+
 #player-one-prompt{
-    opacity: 0;
+    font-size: 40px;
+    color:blue;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 #player-two-prompt{
-    opacity: 0;
-}
-main{
-    display: flex;
-    justify-content: center;
-    border: solid 2px black;
-}
-#board{
-    display: grid;
-    grid-template-columns: 200px 150px 150px 150px 150px 150px 150px 200px;
-    grid-template-areas: 
-        'p2-cell-7 p2-cell-6 p2-cell-5 p2-cell-4 p2-cell-3 p2-cell-2 p2-cell-1 p1-cell-14'
-        'p2-cell-7 p1-cell-8 p1-cell-9 p1-cell-10 p1-cell-11 p1-cell-12 p1-cell-13 p1-cell-14';
-    height: 300px;
-}
-.player-one{
-    background-color: crimson;
-    border: solid 1px black;
-    padding: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.player-two{
-    background-color: cornflowerblue;
-    border: solid 1px black;
-    padding: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.p1-store{
-    grid-area: p1-cell-14;
-    background-color: bisque;
-    border: solid black 1px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    pointer-events: none;
-}
-.p2-store{
-    grid-area: p2-cell-7;
-    background-color: bisque;
-    border: solid black 1px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    pointer-events: none;
+    font-size: 40px;
+    color:red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
-.nucleus{
-    pointer-events: none;
+.player-one-active {
+  pointer-events: all;
+  background-color: rgb(173, 219, 80);
 }
 
-.player-one-active{
-    pointer-events: all; 
-    background-color: green;
-
+.player-one-deactive {
+  pointer-events: none;
+  background-color: rgb(209, 98, 98);
 }
 
-.player-one-deactive{
-    pointer-events: none;
-    background-color: red;
+.player-two-active {
+  pointer-events: all;
+  background-color: rgb(173, 219, 80);
 }
 
-.player-two-active{
-    pointer-events:all;
-    background-color: green;
+.player-two-deactive {
+  pointer-events: none;
+  background-color: rgb(209, 98, 98);
 }
 
-.player-two-deactive{
-    pointer-events: none; 
-    background-color: red;
+.to-center{
+    text-align: center;
+}
+
+button {
+  height: 100px;
+  width: 100%;
+  background-color: antiquewhite;
 }
