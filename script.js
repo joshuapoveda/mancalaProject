@@ -32,8 +32,8 @@ let textDisplay2 = document.querySelector("#player-two-prompt");
 
 let playerTurn = true;
 textDisplay.style.opacity = "1";
-let body = document.body
-body.style.cursor = 'grab'
+let body = document.body;
+body.style.cursor = "grab";
 
 function setPlayer() {
   if (playerTurn === true) {
@@ -66,7 +66,7 @@ function playerOneTurn() {
     if (currentCell.classList.contains("player-two")) {
       return;
     }
-    body.style.cursor = 'grabbing'
+    body.style.cursor = "grabbing";
     let currentCellId = +currentCell.getAttribute("id");
     let cells = Array.from(board.children);
     cells.sort(function (a, b) {
@@ -74,8 +74,8 @@ function playerOneTurn() {
     });
     let nuclei = Array.from(currentCell.children);
     let numOfnuclei = nuclei.length;
-    if(numOfnuclei === 0){
-      return
+    if (numOfnuclei === 0) {
+      return;
     }
     const playerOneBoard = cells.filter(removeP2Store);
     function removeP2Store(cell) {
@@ -111,7 +111,7 @@ function playerOneTurn() {
       }
     }
     board.addEventListener("mouseup", function () {
-      body.style.cursor = 'grab'
+      body.style.cursor = "grab";
       if (currentCellId + numOfnuclei === 6) {
         textDisplay.style.opacity = "1";
       } else {
@@ -133,7 +133,6 @@ function playerOneTurn() {
         nucleus.style.fontSize = "x-large";
         nucleus.classList.add("nucleus");
         console.log("end game");
-        endGame()
         let playerTwoCells = document.getElementsByClassName("player-two");
         let cnt1 = 0;
         for (let i = 0; i < playerTwoCells.length; i++) {
@@ -149,6 +148,7 @@ function playerOneTurn() {
         }
         for (let i = 7; i <= 12; i++) {
           playerOneBoard[i].innerHTML = "";
+          endGame();
         }
       }
     });
@@ -161,7 +161,7 @@ function playerTwoTurn() {
     if (currentCell.classList.contains("player-one")) {
       return;
     }
-    body.style.cursor = 'grabbing'
+    body.style.cursor = "grabbing";
     let currentCellId = +currentCell.getAttribute("id");
     let cells = Array.from(board.children);
     cells.sort(function (a, b) {
@@ -169,7 +169,7 @@ function playerTwoTurn() {
     });
     let nuclei = Array.from(currentCell.children);
     let numOfnuclei = nuclei.length;
-    if(numOfnuclei === 0){
+    if (numOfnuclei === 0) {
       return;
     }
     const playerTwoBoard = cells.filter(removeP1Store);
@@ -208,7 +208,7 @@ function playerTwoTurn() {
       }
       textDisplay.style.opacity = "0";
       board.addEventListener("mouseup", function () {
-        body.style.cursor = 'grab'
+        body.style.cursor = "grab";
         if (currentCellId + numOfnuclei === 13) {
           textDisplay2.style.opacity = "1";
         } else {
@@ -231,7 +231,6 @@ function playerTwoTurn() {
           nucleus.style.fontSize = "x-large";
           nucleus.classList.add("nucleus");
           console.log("end game");
-          endGame()
 
           let playerOneCells = document.getElementsByClassName("player-one");
           let cnt2 = 0;
@@ -247,6 +246,7 @@ function playerTwoTurn() {
             finalGrab.append(nucleus);
           }
           for (let i = 0; i < 6; i++) playerTwoBoard[i].innerHTML = "";
+          endGame();
         }
       });
     }
@@ -264,13 +264,32 @@ playerOneTurn();
 
 playerTwoTurn();
 
-function endGame(){
-  if(board.children[13].childElementCount > board.children[0].childElementCount){
-    console.log('P2 WINS')
-    
+function endGame() {
+  const endTitle = document.querySelector(".end-game");
+
+  if (
+    board.children[13].childElementCount > board.children[0].childElementCount
+  ) {
+    endTitle.firstChild.remove();
+    let playerTwoWin = document.createElement("h1");
+    playerTwoWin.textContent = "Player Ones Wins.";
+    playerTwoWin.classList.add("end-game");
+    endTitle.append(playerTwoWin);
   }
-  if(board.children[0].childElementCount > board.children[13].childElementCount){
-    console.log('P1 WINS')
+  if (
+    board.children[0].childElementCount > board.children[13].childElementCount
+  ) {
+    endTitle.firstChild.remove();
+    let playerOneWin = document.createElement("h1");
+    playerOneWin.textContent = "Player Two Wins.";
+    playerOneWin.classList.add("end-game");
+    endTitle.append(playerOneWin);
+  } else {
+    endTitle.firstChild.remove();
+
+    let tie = document.createElement("h1");
+    tie.textContent = "Player Two Wins.";
+    tie.classList.add("end-game");
+    endTitle.append(tie);
   }
 }
-

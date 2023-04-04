@@ -1,6 +1,6 @@
 body {
   background-color: rgb(233, 233, 233);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 .title {
   border: solid 1px black;
@@ -11,9 +11,9 @@ article {
   margin-bottom: 30px;
 }
 
-p{
-    font-size: x-large;
-    font-weight:normal
+p {
+  font-size: x-large;
+  font-weight: normal;
 }
 
 #text-box {
@@ -81,17 +81,17 @@ main {
   pointer-events: none;
 }
 
-#player-one-prompt{
-    font-size: 30px;
-    color:blue;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+#player-one-prompt {
+  font-size: 30px;
+  color: blue;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
-#player-two-prompt{
-    font-size: 30px;
-    color:red;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+#player-two-prompt {
+  font-size: 30px;
+  color: red;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 .player-one-active {
@@ -114,18 +114,26 @@ main {
   background-color: rgb(209, 98, 98);
 }
 
-.to-center{
-    text-align: center;
+.to-center {
+  text-align: center;
 }
 
 button {
   height: 100px;
   width: 100%;
   background-color: antiquewhite;
-  font-size:40px;
-  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+  font-family: "Courier New", Courier, monospace;
 }
 
-.end-game{
-
+.end-game {
+  position: absolute;
+  font-size: 200px;
+  margin-top: -380px;
+  margin-left: 20px;
+ 
+  color: transparent;
+  -webkit-text-stroke-width: 10px;
+  -webkit-text-stroke-color: black;
+  
 }
