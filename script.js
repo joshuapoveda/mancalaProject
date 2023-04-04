@@ -60,7 +60,7 @@ function playerOneTurn() {
     if (numOfnuclei > 0) {
       if (numOfnuclei + currentCellId > 12) {
         textDisplay2.style.opacity = "1";
-        let diff = numOfnuclei - currentCellId + 1;
+        let diff = 12 - currentCellId;
         for (let i = 1; i <= diff; i++) {
           let nucleus = document.createElement("div");
           nucleus.textContent = 0;
@@ -69,7 +69,7 @@ function playerOneTurn() {
           playerOneBoard[currentCellId + i].append(nucleus);
         }
 
-        let remainder = 12 - diff - 2;
+        let remainder = numOfnuclei - diff;
         for (let j = 0; j < remainder; j++) {
           let nucleus = document.createElement("div");
           nucleus.textContent = 0;
