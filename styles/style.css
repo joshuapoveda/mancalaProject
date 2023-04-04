@@ -53,6 +53,7 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    pointer-events: none;
 }
 .p2-store{
     grid-area: p2-cell-7;
@@ -61,13 +62,30 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    pointer-events: none;
 }
 
 .nucleus{
     pointer-events: none;
 }
 
-.active{
-    
+.player-one-active{
+    pointer-events: all; 
+    background-color: green;
+
 }
 
+.player-one-deactive{
+    pointer-events: none;
+    background-color: red;
+}
+
+.player-two-active{
+    pointer-events:all;
+    background-color: green;
+}
+
+.player-two-deactive{
+    pointer-events: none; 
+    background-color: red;
+}

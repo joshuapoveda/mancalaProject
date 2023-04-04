@@ -33,12 +33,36 @@ function resetBoard() {
 }
 
 const board = document.querySelector("#board");
+const boardChildren = board.children;
 let textDisplay = document.querySelector("#player-one-prompt");
 let textDisplay2 = document.querySelector("#player-two-prompt");
 
 let playerTurn = true;
-
 textDisplay.style.opacity = "1";
+
+function setPlayer(){
+if (playerTurn === true) {
+  for (let i = 1; i <= 6; i++) {
+    boardChildren[i].classList.remove("player-two-active")
+    boardChildren[i].classList.add("player-two-deactive");
+  }
+  for (let i = 7; i <= 12; i++) {
+    boardChildren[i].classList.remove("player-one-deactive")
+    boardChildren[i].classList.add("player-one-active");
+  }
+} else if (playerTurn === false) {
+  for (let i = 7; i <= 12; i++) {
+    boardChildren[i].classList.remove("player-one-active")
+    boardChildren[i].classList.add("player-one-deactive");
+  }
+  for (let i = 1; i <= 6; i++) {
+    boardChildren[i].classList.remove("player-two-deactive")
+    boardChildren[i].classList.add("player-two-active");
+  }
+}
+}
+
+setPlayer()
 
 function playerOneTurn() {
   board.addEventListener("mousedown", function (event) {
@@ -96,8 +120,6 @@ function playerOneTurn() {
         }
       }
     }
-console.log(playerOneBoard)
-
     board.addEventListener("mouseup", function () {
       if (currentCellId + numOfnuclei === 6) {
         textDisplay.style.opacity = "1";
@@ -105,6 +127,7 @@ console.log(playerOneBoard)
         textDisplay.style.opacity = "0";
         textDisplay2.style.opacity = "1";
         playerTurn = false;
+        setPlayer()
       }
 
       for (let i = 0; i < numOfnuclei; i++) nuclei[i].remove();
@@ -141,7 +164,6 @@ console.log(playerOneBoard)
     });
   });
 }
-
 
 function playerTwoTurn() {
   board.addEventListener("mousedown", function (event) {
@@ -204,7 +226,8 @@ function playerTwoTurn() {
         } else {
           textDisplay2.style.opacity = "0";
           textDisplay.style.opacity = "1";
-          playerTurn = true
+          playerTurn = true;
+          setPlayer()
         }
 
         for (let i = 0; i < numOfnuclei; i++) nuclei[i].remove();
@@ -253,6 +276,6 @@ resetBtn.addEventListener("click", function (event) {
 
 setBoard();
 
-
 playerOneTurn();
+
 playerTwoTurn();
