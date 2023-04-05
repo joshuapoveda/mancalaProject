@@ -43,7 +43,7 @@ The gaming logic is contained within 6 functions:
 
 __How to use__:
 
-Read the instructions for gameplay. Two players will choose who goes first. Player 1 is blue and player two is red. follow the prompt for your turn. If someone has already won, or decides to end the game early, press the reset button to start the board.
+Read the instructions for gameplay. Two players will choose who goes first. Player 1 is blue and player two is red. follow the prompt for your turn. If a player's last piece after their turn lands in their store, they go again. If someone has already won, or decides to end the game early, press the reset button to start the board.
 
 __Challenges__:
 
