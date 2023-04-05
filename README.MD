@@ -16,7 +16,7 @@ __Build Status:__
 
 The game is currently in its most basic form. There are edge cases, such as having a large (15+) number of pieces in single pit that cause bugs. ___However___, in the basic form of the game, where starting with 4 pieces in each cell is standard, these bugs do not occur. 
 
-There are multi-board versions of mancala and the potential for the game to be used educationally is high. These would be my reasons to refactor and improve on the current build.
+There are multi-board versions of mancala and offering the user an option to increase the number of cells could be interesting. The potential for the game to be used educationally is quite high. I want to integrate hover-over functionality that makes it easier to see the number of pieces in a cell as well as the arithmetical outcomes. 
 
 __Tech:__
 
@@ -43,7 +43,7 @@ The gaming logic is contained within 6 functions:
 
 __How to use__:
 
-Read the instructions for gameplay. Two players will choose who goes first. Player 1 is blue and player two is red. follow the prompt for your turn. If someone has already won, or decides to end the game early, press the reset button to start the board. 
+Read the instructions for gameplay. Two players will choose who goes first. Player 1 is blue and player two is red. follow the prompt for your turn. If someone has already won, or decides to end the game early, press the reset button to start the board.
 
 __Challenges__:
 
