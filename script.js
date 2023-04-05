@@ -157,6 +157,7 @@ function playerOneTurn() {
 
 function playerTwoTurn() {
   board.addEventListener("mousedown", function (event) {
+    textDisplay.style.opacity = "1";
     let currentCell = event.target;
     if (currentCell.classList.contains("player-one")) {
       return;
@@ -287,5 +288,4 @@ function endGame(){
     endTitle.append(tie)
   }
 }
-console.log(board.children[13].childElementCount)
 

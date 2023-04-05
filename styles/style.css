@@ -1,23 +1,39 @@
 body {
-  background-color: rgb(233, 233, 233);
+background-image: linear-gradient(rgb(233, 233, 233),rgb(218, 202, 232),rgb(214, 174, 174));
   font-family: "Courier New", Courier, monospace;
+  min-height: 100vh;
 }
 .title {
-  border: solid 1px black;
-  font-size: 60px;
+  font-size: 80px;
+  margin-left: 30px;
 }
 article {
-  border: solid 1px black;
-  margin-bottom: 30px;
+  margin-bottom: -70px;
+  margin-top: -40px;
+  padding: 0px 90px 90px 90px;
+}
+
+h3{
+    font-size: 50px;
+    font-style: italic;
+    margin-top: -15px;
+    margin-bottom: -5px;
+}
+bold{
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 30px;
+    font-style: italic;
+    
 }
 
 p {
-  font-size: x-large;
+  font-size: 40px;
   font-weight: normal;
 }
 
 #text-box {
-  border: solid 2px red;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,14 +61,14 @@ main {
   height: 300px;
 }
 .player-one {
-  border: solid 1px black;
+  border: solid 2px blue;
   padding: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 .player-two {
-  border: solid 1px black;
+  border: solid 2px red;
   padding: 40px;
   display: flex;
   flex-wrap: wrap;
@@ -60,7 +76,7 @@ main {
 }
 .p1-store {
   grid-area: p1-cell-14;
-  background-color: rgb(187, 161, 222);
+  background-color: rgba(43, 13, 239, 0.196);
   border: solid blue 5px;
   display: flex;
   flex-wrap: wrap;
@@ -69,7 +85,7 @@ main {
 }
 .p2-store {
   grid-area: p2-cell-7;
-  background-color: rgb(187, 161, 222);
+  background-color: rgba(239, 12, 12, 0.238);
   border: solid red 5px;
   display: flex;
   flex-wrap: wrap;
@@ -121,20 +137,22 @@ main {
 button {
   height: 100px;
   width: 100%;
-  background-color: antiquewhite;
+  background-color: rgb(233, 233, 233);
   font-size: 40px;
   font-family: "Courier New", Courier, monospace;
+  margin-top: 40px;
 }
 
 .end-game {
   position: absolute;
-  font-size: 200px;
-  margin-top: -380px;
-  margin-left: 20px;
- 
+  font-size: 125px;
+  margin-top: -500px;
+  margin-left: 350px;
+  transform: rotate(15deg);
+  
   color: transparent;
-  -webkit-text-stroke-width: 10px;
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 7px;
+  -webkit-text-stroke-color: rgb(211, 23, 77);
   
 }
 
