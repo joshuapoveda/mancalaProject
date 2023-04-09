@@ -27,12 +27,12 @@ function resetBoard() {
 
 const board = document.querySelector("#board");
 const boardChildren = board.children;
-let textDisplay = document.querySelector("#player-one-prompt");
-let textDisplay2 = document.querySelector("#player-two-prompt");
+const textDisplay = document.querySelector("#player-one-prompt");
+const textDisplay2 = document.querySelector("#player-two-prompt");
 
 let playerTurn = true;
 textDisplay.style.opacity = "1";
-let body = document.body
+const body = document.body
 body.style.cursor = 'grab'
 
 function setPlayer() {

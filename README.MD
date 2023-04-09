@@ -55,6 +55,8 @@ Since the player-turn functions are already called upon load but actived by even
 
 Shout out 🗣️ to Ashley for suggesting that I use css to display and hide certain conditions and 🗣️ Jenna for discussing the project in a way that led to more ideas. 🗣️ Kasper also suggested the use of the pointer-events property to limit player interaction. Finally, Dylan suggested the turn-based mechanic first embedded in each player function be its own independent function (setPlayer()). This tied it all together.
 
+link to github page: https://joshuapoveda.github.io/mancalaProject/
+
 Thanks to everyone for helping! Next stop: Refactor-ville!
 
 
